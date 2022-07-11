@@ -8,8 +8,7 @@ resource "azurerm_linux_virtual_machine" "K8s_Master" {
   admin_username        = var.admin_username
   admin_password        = var.admin_password
   disable_password_authentication = false
-  #delete_os_disk_on_termination = true
-  #delete_data_disks_on_termination = true
+  
 
   source_image_reference {
 
