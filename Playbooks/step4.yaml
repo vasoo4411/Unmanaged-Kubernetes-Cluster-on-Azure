@@ -1,0 +1,13 @@
+- hosts: ansible_server
+  become: yes
+  tasks:
+
+    - name: Get the token for joining the worker nodes
+      become: yes
+      become_user: Testadmin
+      shell: kubeadm token create  --print-join-command
+      register: kubernetes_join_command
+
+    - name: Copy join command to local file.
+      become: yes
+      local_action: copy content="{{ kubernetes_join_command.stdout_lines[0] }}" dest="/tmp/kubernetes_join_command" mode=0777

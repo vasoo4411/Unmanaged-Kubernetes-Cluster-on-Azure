@@ -1,0 +1,23 @@
+- hosts: ansible_server
+  become: yes
+  tasks:
+    - name: initialize the cluster
+      shell: kubeadm init --pod-network-cidr=10.0.0.0/16
+      args:
+        chdir: $HOME
+        creates: cluster_initialized.txt
+
+    - name: create .kube directory
+      become: yes
+      become_user: Testadmin
+      file:
+        path: $HOME/.kube
+        state: directory
+        mode: 0755
+
+    - name: copies admin.conf to user's kube config
+      copy:
+        src: /etc/kubernetes/admin.conf
+        dest: /home/Testadmin/.kube/config
+        remote_src: yes
+        owner: Testadmin

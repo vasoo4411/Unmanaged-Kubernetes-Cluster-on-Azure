@@ -1,0 +1,10 @@
+- hosts: ansible_server
+  become: yes
+  tasks:
+
+   - name: install Pod network
+     become: yes
+     become_user: Testadmin
+     shell: kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+     args:
+       chdir: $HOME
