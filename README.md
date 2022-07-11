@@ -12,4 +12,8 @@ Usage
 
 Step 1:
 
-Login to 
+Configure your terraform to use it with MSFT Azure.
+Configuring TF is out of scope for this, so please follow the steps as per this article to configure https://docs.microsoft.com/en-us/azure/developer/terraform/get-started-cloud-shell-bash?tabs=bash
+
+Step 2: 
+
