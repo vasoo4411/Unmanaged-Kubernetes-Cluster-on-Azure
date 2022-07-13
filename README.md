@@ -17,3 +17,6 @@ Configuring TF is out of scope for this, so please follow the steps as per this 
 
 Step 2: 
 
+Unzip the contents of https://github.com/vasoo4411/Unmanaged-Kubernetes-Cluster-on-Azure and run terraform init and terraform apply
+
+As soon as it completes execution, you will have a fully functional Kubernetes Cluster. You can connect to the master node over internet on SSH with creds.
